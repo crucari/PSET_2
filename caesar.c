@@ -8,10 +8,77 @@
 
 // Steps:
 // 1) Get the key
-        // -get it using the commandline arguement
-        // -atoi
+// -get it using the commandline arguement
+// -atoi
 
-        //argc and argv
+//argc and argv
 // 2) Get the plain text
 // 3) Encipher
 // 4) Print cipher text
+
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int main(int argc, string argv[])
+{
+
+    string input; // store user input
+
+    if (argc != 2)
+    {
+        printf("Enter key\n");
+        return 1;
+    }
+
+    int key = atoi(argv[1]);
+
+    if (key < 0)
+    {
+        printf("Enter msg:\n");
+        return 1;
+    }
+
+    else
+    {
+
+        input = get_string("Enter a message: ");
+        printf("ciphertext: ");
+
+        for (int i = 0, n = strlen(input); i < n; i++)
+        {
+            char cipher = input[i];
+
+
+            if islower(input[i])
+            {
+                cipher = (((input[i] + key) - 97) % 26) + 97;
+            }
+
+            if isupper(input[i])
+            {
+                cipher = (((input[i] + key) - 65) % 26) + 65;
+            }
+
+
+            if (isalpha(input[i]))
+            {
+                input[i] = cipher;
+                printf("%c", cipher);
+            }
+
+            else
+            {
+                printf("%c", cipher);
+            }
+
+        }
+
+        printf("\n");
+        return 0;
+
+    }
+
+}
