@@ -49,29 +49,29 @@ int main(int argc, string argv[])
 
         for (int i = 0, n = strlen(input); i < n; i++)
         {
-            char cipher = input[i];
+            char ciph = input[i];
 
 
             if islower(input[i])
             {
-                cipher = (((input[i] + key) - 97) % 26) + 97;
+                ciph = (((input[i] + key) - 97) % 26) + 97;
             }
 
             if isupper(input[i])
             {
-                cipher = (((input[i] + key) - 65) % 26) + 65;
+                ciph = (((input[i] + key) - 65) % 26) + 65;
             }
 
 
             if (isalpha(input[i]))
             {
-                input[i] = cipher;
-                printf("%c", cipher);
+                input[i] = ciph;
+                printf("%c", ciph);
             }
 
             else
             {
-                printf("%c", cipher);
+                printf("%c", ciph);
             }
 
         }
