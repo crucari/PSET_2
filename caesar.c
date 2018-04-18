@@ -22,12 +22,12 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-int main(int argc, string argv[])
+int main(int argc, string argv[])  // pr-jb - Consider adding additional comments for code readability
 {
 
     string input; // store user input
 
-    if (argc != 2)
+    if (argc != 2)  // pr-jb- check for argument
     {
         printf("Enter key\n");
         return 1;
@@ -44,15 +44,15 @@ int main(int argc, string argv[])
     else
     {
 
-        input = get_string("Enter a message: ");
+        input = get_string("Enter a message: ");  // pr-jb - Initialize plaintext value
         printf("ciphertext: ");
 
-        for (int i = 0, n = strlen(input); i < n; i++)
+        for (int i = 0, n = strlen(input); i < n; i++)  // pr-jb - loop though each letter of the plaintext value
         {
             char cipher = input[i];
 
 
-            if islower(input[i])
+            if islower(input[i])  // pr-jb - encode the plaintext
             {
                 cipher = (((input[i] + key) - 97) % 26) + 97;
             }
@@ -63,7 +63,7 @@ int main(int argc, string argv[])
             }
 
 
-            if (isalpha(input[i]))
+            if (isalpha(input[i]))  // pr-jb - check if index in plaintext is an alpha character and print
             {
                 input[i] = cipher;
                 printf("%c", cipher);
@@ -81,4 +81,4 @@ int main(int argc, string argv[])
 
     }
 
-}
+}  // pr-jb - Code looks good, very clean, styled well
